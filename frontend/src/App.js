@@ -1,19 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-import ChatPage from './pages/ChatPage';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
+import { LoginPage } from './pages/LoginPage';
+import { RegisterPage } from './pages/RegisterPage';
+import { ChatPage } from './pages/ChatPage';
 
 function App() {
   return (
     <Router>
       <AuthProvider>
-        <Switch>
-          <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={RegisterPage} />
-          <Route path="/chat" component={ChatPage} />
-        </Switch>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/chat" element={<ChatPage />} />
+        </Routes>
       </AuthProvider>
     </Router>
   );
